@@ -47,7 +47,7 @@ export default function Modal({ open }: { open: boolean }) {
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    Metamask isn't available, click in the buttom to install in
+                                                    Metamask isn t available, click in the buttom to install in
                                                     your browser then reload the browser to continue.
                                                 </p>
                                             </div>

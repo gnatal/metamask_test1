@@ -15,14 +15,13 @@ const Home: NextPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (window.ethereum) {
-      console.log('Metamask available')
-      window.ethereum.request({ method: 'eth_requestAccounts' })
-        .then(res => {
+    if ((window as any).ethereum) {
+      (window as any).ethereum.request({ method: 'eth_requestAccounts' })
+        .then((res: any) => {
           // Return the address of the wallet
           console.log(`Addresses loged in`, res)
           dispatch(setAddress(res[0]));
-        }).catch(res => {
+        }).catch((res: any) => {
           console.log('could not fetch')
         })
     } else {
@@ -41,7 +40,7 @@ const Home: NextPage = () => {
         alert(`You need ${owner.address} NFT to view the content`);
       }
     } catch (e) {
-      console.log(`Error fetching nft: ${e.message}`);
+      console.log(`Error fetching nft: ${(e as any).message}`);
     }
   }
 

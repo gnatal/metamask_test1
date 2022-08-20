@@ -1,7 +1,7 @@
-import Home from '..';
+import Home from '../pages';
 import { render, fireEvent } from '@testing-library/react'
-import metamaskApi from '../../api/metamask'
-import { renderWithStore } from '../../hooks/renderWithStore'
+import metamaskApi from '../api/metamask'
+import { renderWithStore } from '../hooks/renderWithStore'
 let owners = [{
     user: 'none',
     owner: {
@@ -9,7 +9,7 @@ let owners = [{
     }
 }]
 
-jest.mock('../../api/metamask', () => jest.fn());
+jest.mock('../api/metamask', () => jest.fn());
 
 (metamaskApi as jest.Mock).mockReturnValue(owners)
 const myAddress = '0x88b48f654c30e99bc2e4a1559b4dcf1ad93fa656'

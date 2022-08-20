@@ -1,15 +1,15 @@
-import { useRef } from 'react'
+import { useState } from 'react'
 
 export default function FetchNFT({ callMeta }: any) {
 
-    const addressRef = useRef();
-    const idRef = useRef();
+    const [address, setAddress] = useState('');
+    const [id, setId] = useState('');
 
-    function submit(e) {
+    function submit(e: any) {
         e.preventDefault();
         const data = {
-            address: addressRef.current?.value,
-            id: idRef.current?.value
+            address,
+            id
         }
         callMeta({ ...data })
     }
@@ -22,7 +22,7 @@ export default function FetchNFT({ callMeta }: any) {
                     <input
                         type="text"
                         name='address'
-                        ref={addressRef}
+                        onChange={(e) => { setAddress(e.target.value) }}
                         data-testid='address'
                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         id="exampleFormControlInput2"
@@ -33,7 +33,7 @@ export default function FetchNFT({ callMeta }: any) {
                     <input
                         type="text"
                         name='id'
-                        ref={idRef}
+                        onChange={(e) => { setId(e.target.value) }}
                         data-testid='nftId'
                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         id="exampleFormControlInput2"
